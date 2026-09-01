@@ -23,4 +23,20 @@ public class Usecase {
         }
         return a/b;
     }
+
+    public Double multiplicar(Double a,Double b){
+        if (a==0 || b==0){
+            throw new RuntimeException("Falha, valor não alterado. Ao multiplicar por 0, o valor não altera.");
+        }
+        return a*b;
+    }
+
+    public Double subtrair(Double a,Double b){
+        if (a==0 && b==0){
+            throw new RuntimeException("Falha, para poder fazer essa operaçãpo, pelo menos um dos valores deve ser maior que zero.");
+
+        }
+        return a-b;
+    }
+
 }

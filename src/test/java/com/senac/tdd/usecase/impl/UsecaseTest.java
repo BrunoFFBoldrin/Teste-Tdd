@@ -72,4 +72,21 @@ public class UsecaseTest{
         Assertions.assertEquals("Kojima falou, que não pode dividir por sete", actual.getMessage());
     }
 
+    @Test
+    public void testeMutiplicacaoPorZero(){
+        Usecase calculadora = new Usecase();
+        RuntimeException actual = Assertions.assertThrows(RuntimeException.class, ()-> {
+            calculadora.multiplicar(7.0, 0.0);
+        });
+        Assertions.assertEquals("Falha, valor não alterado. Ao multiplicar por 0, o valor não altera.", actual.getMessage());
+    }
+
+    @Test
+    public void testeSubtracaoSemValor(){
+        Usecase calculadora = new Usecase();
+        RuntimeException actual = Assertions.assertThrows(RuntimeException.class, () -> {
+            calculadora.subtrair(0.0,0.0);
+        });
+        Assertions.assertEquals("Falha, para poder fazer essa operaçãpo, pelo menos um dos valores deve ser maior que zero.", actual.getMessage());
+    }
 }
